@@ -14,25 +14,23 @@ El desarrollo de toda Aplicación Web requiere seguir un [proceso estructurado](
 
 # Título del Proyecto
 
-#### Curso Escolar 20XX-20XX
-#### Autor: [Nombre del alumno autor](Enlace a su cuenta de gitHub)
-#### Tutor: [Nombre del profesor tutor](Enlace a su cuenta de gitHub)
-#### Fecha de Inicio: DD-MM-YYYY
-#### Fecha de Finalización: DD-MM-YYYY
+#### Curso Escolar 2022-2023
+#### Autor: Isidro Perez Padilla
+#### Tutor: Antonio Gabriel Garcia Casado
+#### Fecha de Inicio: 26-09-2022
+#### Fecha de Finalización: 12-12-2022
 
 ## Breve descripción del proyecto
 
-Si ya tienes una idea para tu aplicación, explícala brevemente. Si no es así, lo que realmente necesitas es **buscar un problema o necesidad a la que darle solución**, y estos **están por todas partes**. Así que trata de buscar problemas o necesidades en tu vida diaria y realiza una lista. Una vez que tengas una lista exhaustiva, ya puedes empezar a pensar en **cómo puedes resolverlos**.
+Las tecnología blockchain y las criptomonedas han sido un boom en estos últimos años y cada día más gente muestra interés y quiere conocer este mundo.
 
-En este apartado el alumno debe hacer una breve descripción del proyecto que vaya a realizar. Esta descripción no será ua descripción detallada, será una presentación general con no más de 10 líneas.
+El problema es que alguien sin conocimiento previo no sabe por donde empezar, ya que hay miles de proyectos que existen, cientos que nacen o desaparecen. El objetivo de la página es que el usuario final pueda, conocer un poco más el mundo de las criptomonedas, enseñándole algunos términos de los más importantes (blockchain, smart contracts…) y permitirle investigar algunos de los proyectos más relevantes y además, si el proyecto le parece interesante podrá añadirlo a su lista de favoritos para no perderlo de vista
+
+Además de lo dicho anteriormente el usuario final podrá gestionar el patrimonio que tenga.
+
 
 ## Definir el objetivo de la aplicación
-**Tener una gran idea** o encontrar un punto del mercado al que no se esté dando un producto o servicio es el punto de partida en cada nuevo proyecto. Antes de comenzar debes **definir claramente el propósito y la misión de la aplicación web**:
-
-- **¿Qué va a hacer la aplicación?**
-- **¿Cuál es su atractivo principal?** 
-- **¿Qué problema concreto va a resolver?** 
-- **¿Qué necesidad va a cubrir?**
+La finalidad es que el usuario final pueda **aprender** sobre el mundo de las criptomonedas e **investigar** nuevos activos y **gestionar** los que posee, unificando los intereses del usuario y **facilitando la protección de su patrimonio.**
 
 ## Prototipo de la Interfaz del proyecto
 
