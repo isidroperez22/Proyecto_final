@@ -24,13 +24,11 @@ El desarrollo de toda Aplicación Web requiere seguir un [proceso estructurado](
 
 Las tecnología blockchain y las criptomonedas han sido un boom en estos últimos años y cada día más gente muestra interés y quiere conocer este mundo.
 
-El problema es que alguien sin conocimiento previo no sabe por donde empezar, ya que hay miles de proyectos que existen, cientos que nacen o desaparecen. El objetivo de la página es que el usuario final pueda, conocer un poco más el mundo de las criptomonedas, enseñándole algunos términos de los más importantes (blockchain, smart contracts…) y permitirle investigar algunos de los proyectos más relevantes y además, si el proyecto le parece interesante podrá añadirlo a su lista de favoritos para no perderlo de vista
-
-Además de lo dicho anteriormente el usuario final podrá gestionar el patrimonio que tenga.
+El problema es que alguien sin conocimiento previo no sabe por donde empezar, ya que hay miles de proyectos que existen, cientos que nacen o desaparecen. El objetivo de la página es que el usuario final pueda, conocer un poco más el mundo de las criptomonedas, enseñándole algunos términos de los más importantes (blockchain, smart contracts…) y permitirle seguir de cerca algunos de los proyectos más relevantes.
 
 
 ## Definir el objetivo de la aplicación
-La finalidad es que el usuario final pueda **aprender** sobre el mundo de las criptomonedas e **investigar** nuevos activos y **gestionar** los que posee, unificando los intereses del usuario y **facilitando la protección de su patrimonio.**
+La finalidad es que el usuario final pueda **aprender** sobre el mundo de las criptomonedas e **investigar** nuevos activos y **gestionar** los que posee, unificando los intereses del usuario.
 
 ## Prototipo de la Interfaz del proyecto
 
