@@ -10,10 +10,12 @@ class Moneda
    var $market;
    var $price;
    var $h24;
+   var $foto;
+   var $color;
    var $conexion;
 
    //Constructor del objeto
-   public function __construct($id = "", $nombre = "", $descripcion = "", $market = 0, $price = 0, $h24 = 0)
+   public function __construct($id = "", $nombre = "", $descripcion = "", $market = 0, $price = 0, $h24 = 0, $foto = "", $color = "")
    {
       $this->id = $id;
       $this->nombre = $nombre;
@@ -21,6 +23,8 @@ class Moneda
       $this->market = $market;
       $this->price = $price;
       $this->h24 = $h24;
+      $this-> foto = $foto;
+      $this-> color = $color;
       $this->conexion = new mysqli('localhost', 'root', '', 'proyecto');
    }
 
@@ -63,8 +67,8 @@ class Moneda
    //Funcion para aniadir monedas
    function add_monedas()
    {
-      $inserta = "INSERT INTO criptos(id, nombre, descripcion, market_cap, price, change_h) 
-                  VALUES ('{$this->id}', '{$this->nombre}','{$this->descripcion}', {$this->market}, {$this->price}, {$this->h24});";
+      $inserta = "INSERT INTO criptos(id, nombre, descripcion, market_cap, price, change_h, foto) 
+                  VALUES ('{$this->id}', '{$this->nombre}','{$this->descripcion}', {$this->market}, {$this->price}, {$this->h24}, '{$this->foto}');";
       $result = $this->conexion->query($inserta);
       return $this->conexion->affected_rows;
    }
@@ -72,7 +76,7 @@ class Moneda
    //Funcion para editar nombre y descripcion de una moneda
    function edit_monedas()
    {
-      $update = "UPDATE criptos SET nombre = '{$this->nombre}', descripcion = '{$this->descripcion}' WHERE id LIKE '{$this->id}'";
+      $update = "UPDATE criptos SET nombre = '{$this->nombre}', descripcion = '{$this->descripcion}', color = '{$this->color}' WHERE id LIKE '{$this->id}'";
       $result = $this->conexion->query($update);
 
       return $result;

@@ -3,6 +3,8 @@ require_once "../model/Favorito.php";
 session_start();
 
 $post = $_POST;
+$get = $_GET;
+
 
 //Si esta id_add en el post entra en este if que comprobara si lexiste la id en la session
 // si estan ambas cosas montara el objeto favorito y llamara a la funcion add_favoritos que
@@ -24,4 +26,10 @@ if(isset($post["id_del"])){
         echo $favorito->del_favoritos();
         exit;
     }
+}
+
+if(isset($get["listfav"])){
+    
+    $favorito = new Favorito("", $_SESSION["id"]);
+    echo json_encode($favorito->mostrar_favoritos());
 }

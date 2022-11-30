@@ -24,6 +24,7 @@ class Transaccion
         $inserta = "INSERT INTO transacciones(usuario, cripto, fecha, cantidad ) 
         VALUES ('{$this->usuario}', '{$this->cripto}', '{$this->fecha}', '{$this->cantidad}');";
         $result = $this->conexion->query($inserta);
+        
         return $this->conexion->affected_rows;
     }
 
@@ -33,6 +34,7 @@ class Transaccion
         $select = "SELECT 
                         c.nombre AS 'Nombre', 
                         c.price as 'Precio', 
+                        c.color as 'Color',
                         SUM(t.cantidad) as 'Cantidad', 
                         (c.price * SUM(t.cantidad)) as Total
                     FROM transacciones t INNER JOIN criptos c ON t.cripto = c.id 

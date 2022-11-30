@@ -24,35 +24,38 @@ if (!isset($_SESSION["role"])) {
 
 <body>
     <?php require_once "view/components/header.php" ?>
-    <div class="container-fluid p-5 ">
+    <div class="container-fluid vh-100 p-5 ">
 
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Precio</th>
-                    <th class ='d-none d-lg-block' scope="col">Market Cap.</th>
+                    <th class ='d-none d-sm-block' scope="col">Market Cap.</th>
                     <th scope="col">24h %</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
+            <tbody id="cuerpo">
+
+            </tbody>
             <?php
-            $favoritos = new Favorito("", $_SESSION["id"]);
-            echo "<tbody id='tbody'>";
-            if ($favoritos->mostrar_favoritos() == false) {
-                echo "<p>No hay ningun favorito</p>";
-            } else {
-                foreach ($favoritos->mostrar_favoritos() as $key => $value) {
-                    echo "<tr>";
-                    echo "<td>$value[nombre]</td>";
-                    echo "<td>$value[price]€</td>";
-                    echo "<td class ='d-none d-lg-block'>$value[market_cap]€</td>";
-                    echo "<td>$value[change_h]%</td>";
-                    echo "<td><a onclick='del_favoritos(`{$value['id']}`)' id='{$value['id']}'><i class = 'bi bi-star-fill fav'></i></a></td>";
-                    echo "</tr>";
-                }
-            }
-            echo "</tbody>";
+            // $favoritos = new Favorito("", $_SESSION["id"]);
+            // echo "<tbody id='tbody'>";
+            // if ($favoritos->mostrar_favoritos() == false) {
+            //     echo "<p>No hay ningun favorito</p>";
+            // } else {
+            //     foreach ($favoritos->mostrar_favoritos() as $key => $value) {
+            //         echo "<tr>";
+            //         echo "<td>$value[nombre]</td>";
+            //         echo "<td>$value[price]€</td>";
+            //         echo "<td class ='d-none d-lg-block'>$value[market_cap]€</td>";
+            //         echo "<td>$value[change_h]%</td>";
+            //         echo "<td><a onclick='del_favoritos(`{$value['id']}`)' id='{$value['id']}'><i class = 'bi bi-star-fill fav'></i></a></td>";
+            //         echo "</tr>";
+            //     }
+            // }
+            // echo "</tbody>";
             ?>
 
         </table>

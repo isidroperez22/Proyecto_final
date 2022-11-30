@@ -75,11 +75,11 @@ class Favorito
                     WHERE f.id_usuario = '{$this->id_usuario}' && f.id_cripto='{$this->id_cripto}';";
         $result = $this->conexion->query($select);
        
-        if($result->num_rows > 0){ // Si el numero de filas es mayor a 0 me relelna el array
-            while ($row = $result->fetch_assoc()){
-                $array[] = $row ;
-            }
-        } 
-        return $array;
+        if($result->num_rows > 0){ // Si el numero de filas es mayor a 0 me devuelve true
+            return true;
+        } else {
+            return false;
+        }
+       
     }
 }

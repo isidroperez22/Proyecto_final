@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
         <a class="nav-link text-white" id="inicio" aria-current="page" href="/proyecto/">Inicio</a>
-        <a class="nav-link text-white" id="tablaMonedas" href="/proyecto/criptomonedas_view.php">Monedas</a>
+        <a class="nav-link text-white" id="tablaMonedas" href="/proyecto/lista_coins.php">Monedas</a>
         <?php if (isset($_SESSION["role"])) { ?><a class="nav-link text-white" id="tablaMonedas" href="/proyecto/favoritos_view.php">Lista de seguimiento</a> <?php } ?>
       </div>
     </div>

@@ -8,12 +8,10 @@ if(!isset($_SESSION["role"])){
 <html lang="en">
 
 <head>
-    <script src="resources/bootstrap/js/jquery-3.6.1.js"></script>
-    <script src="resources/bootstrap/js/bootstrap.bundle.js"></script>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/views.js"></script>
     <script src="js/logout.js"></script>
     <meta charset="UTF-8">
@@ -26,7 +24,7 @@ if(!isset($_SESSION["role"])){
     <?php
     require "view/components/header.php"
     ?>
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <div class="row">
             <?php require "view/components/sideBar.php"; ?>
 
@@ -34,11 +32,14 @@ if(!isset($_SESSION["role"])){
             </main>
         </div>
     </div>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-5 border-top sitcky-bottom">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 sticky-bottom">
         <?php
         require "view/components/footer.php"
         ?>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="resources/bootstrap/js/jquery-3.6.1.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>

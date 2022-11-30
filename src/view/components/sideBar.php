@@ -1,6 +1,6 @@
-<nav id="" class="col-md-3 col-lg-2 d-md-block sidebar fixed-left sidebarMenu">
+<nav id="" class="col-md-3 col-lg-2 sidebar vh-100 fixed-left sidebarMenu">
     <div class="position-sticky pt-3 sidebar-sticky">
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-white text-uppercase fw-bold">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 text-white text-uppercase fw-bold">
             <span>Mi portfolio</span>
         </h6>
         <ul class="nav flex-column">

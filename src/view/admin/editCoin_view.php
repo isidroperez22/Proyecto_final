@@ -31,11 +31,15 @@
                 <form action="#" method="post" id="form_edit" name="form_edit">
                     <div class="mb-3">
                         <input type="hidden" id="id" name="id">
-                        <label for="" class="form-label text-white">Usuario</label>
+                        <label for="" class="form-label t">Nombre</label>
                         <input type="text" class="form-control" id="nombre_coin" name="nombre_coin">
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label text-white">Contarseña</label>
+                        <label for="" class="form-label t">Color</label>
+                        <input type="text" class="form-control" id="color_coin" name="color_coin" placeholder="#FFFFFF">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label ">Descripcion</label>
                         <textarea  class="form-control" id="descripcion" name="descripcion"></textarea>
                     </div>
             </div>

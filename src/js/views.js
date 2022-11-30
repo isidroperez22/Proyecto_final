@@ -17,27 +17,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     let array_nombres = [];
                     let array_colores = [];
                     let array_cantidades = [];
-                    array_respuesta.forEach(element => { // Almacena los valores del array en 2 array distintos y 
-                        array_nombres.push(element["Nombre"]);
-                        array_cantidades.push(element["Total"]);
-                        array_colores.push(generarNuevoColor()); //un tercero que generara un color aleatorio
+                    array_respuesta.forEach(element => {
+                        console.log()
+                        if (element["Total"] > 0) {  // Almacena los valores del array en 2 array distintos y 
+                            array_nombres.push(element["Nombre"]);
+                            array_cantidades.push(element["Total"]);
+                            if (element["Color"] != null) {
+                                array_colores.push(element["Color"]);
+                            } else {
+                                array_colores.push(generarNuevoColor()); //Si no tiene un color seleccionado pondra un color aleatorio
+                            }
+
+                        }
+
                     });
-                    const data = { //Rellenamos los datos que contendra el donut
-                        labels: array_nombres,
-                        datasets: [{
-                            data: array_cantidades,
-                            backgroundColor: array_colores,
-                            hoverOffset: 4,
-                        }]
-                    };
-                    const config = { // Aqui lo que hacemos es decir a la api que el tipo de grafica sera un donut
-                        type: 'doughnut',
-                        data: data,
-                    };
-                    const myChart = new Chart( //Creamos la grafica
-                        document.getElementById('myChart'),
-                        config
-                    );
+                    graficaRosco(array_nombres, array_colores, array_cantidades)
+
                 }
             });
 
@@ -55,6 +50,29 @@ document.addEventListener('DOMContentLoaded', function (event) {
         return color;
     }
 
+    function graficaRosco(array_nombres, array_colores, array_cantidades) {
+
+        var data = { //Rellenamos los datos que contendra el donut
+            labels: array_nombres,
+            datasets: [{
+                data: array_cantidades,
+                backgroundColor: array_colores,
+                hoverOffset: 4,
+            }]
+        };
+        var config = { // Aqui lo que hacemos es decir a la api que el tipo de grafica sera un donut
+            type: 'doughnut',
+            responsive: true,
+            data: data,
+        };
+        var myChart = new Chart( //Creamos la grafica
+            document.getElementById('donut'),
+            config,
+        );
+        var ctx = $('#donut');
+        ctx.height(400);
+
+    }
     //---------------- GESTION PORTFOLIO
 
     $('.add_transaccion').click(function (e) { //Muestra la vista de agregar transaccion
@@ -89,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             function () {
                 let coin = document.getElementById("addcoinForm")
 
-                coin.addEventListener('submit', (e) => { 
+                coin.addEventListener('submit', (e) => {
                     e.preventDefault();
                     var dato = document.getElementById("coin").value //Recoge la moneda que buscas
                     $.ajax({
@@ -144,17 +162,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 let price = response.market_data.current_price.eur;
                 let market_cap = response.market_data.market_cap.eur;
                 let change_24h = response.market_data.price_change_percentage_24h_in_currency.eur
-                console.log();
+                let foto = response.image.large;
                 let datos_coin = [];
-                datos_coin.push(id, name, "", market_cap, price, change_24h);
-                console.log(datos_coin)
+                datos_coin.push(id, name, "", market_cap, price, change_24h, foto);
                 insertarCoins(datos_coin);
             }
         });
     };
 
     function insertarCoins(datos) { //Envia los datos al controlador e inserta la criptomoneda en la tabla
-        console.log(datos)
+        console.log(datos);
         $.ajax({
             type: "POST",
             url: "controller/adminController.php",
@@ -165,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
         });
     }
-    
+
     //---------------- DELCOIN
     $('.delCoin_view').click(function (e) { //Muestra la vista de eliminar criptomoneda
         e.preventDefault();
@@ -218,21 +235,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
             data: { "id_coin_edit_get": id },
             dataType: "JSON",
             success: function (response) { // En la respuesta recibe los datos de la moneda y aniade los valores
-                console.log(response[0][1])
+
                 let nombre = document.getElementById("nombre_coin");
+                let color = document.getElementById("color_coin");
                 let descripcion = document.getElementById("descripcion");
                 let id_form = document.getElementById("id");
                 id_form.value = response[0][0];
                 nombre.value = response[0][1];
+                color.value = response[0][7];
                 descripcion.value = response[0][2];
                 $("#coin").modal('show');
                 $('#btn-edit-coin').click(function (e) { // Una vez editado envias los datos al servidor y recibes una respuesta
                     var datos = $('#form_edit').serializeArray();
+                    console.log(datos)
                     $.ajax({
                         type: "POST",
                         url: "controller/adminController.php",
                         data: { "id_coin_edit": datos },
-                        success: function (response) { 
+                        success: function (response) {
                             if (response == 1) { // Si la respuesta es 1 significa que se han guardado los cambios
                                 $("#coin").modal('hide');
                             }
