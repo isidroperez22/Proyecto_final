@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&display=swap');
+
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none !important;
+}
+.nav-bar {
+    background-color: #062E26 !important;
+    color: #fff !important;
+}
+
+/* .btn-navbar {
+    background-color: #117A65 !important;
+    color: #fff !important;
+} */
+
+.row-index {
+    background-color: #052620 !important;
+    color: #fff !important;
+}
+
+footer {
+    background-color: #062E26  !important;
+    color: #fff  !important;
+}
+
+.sidebarMenu {
+    background-color: #062E26 !important;
+    color: #fff !important;
+}
+
+
+/* Botones de eliminar de favoritos */
+.fav {
+    color: goldenrod;
+}
+
+.fav:hover {
+    color: black;
+}
+
+.add_fav:hover {
+    color: goldenrod;
+}
+
+.add_fav {
+    color: black;
+}
+
+/* Bordes del formulario de actualizar usuario */
+.form_edit_usuario {
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: rgb(224, 224, 224);
+    border-bottom-color: transparent;
+    border-left-color: rgb(224, 224, 224);
+    ;
+}
+
+.boton {
+    background-color: #117A65 !important;
+    border-color: #117A65 !important;
+    color: #fff;
+}
+
+.positivo {
+    color:green;
+    background-color: #B4F6B0;
+    padding:4px; 
+    border-radius:10px;
+    border: 3px solid green;;
+}
+
+.borde {
+    color: rgb(74, 74, 74) !important;
+}
