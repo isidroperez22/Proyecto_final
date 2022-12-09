@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 // console.log(element.id)
                 tr.innerHTML += "<td><img src='"+element.foto+"' alt='' width='40' height='40'></td>"
                 tr.innerHTML += "<td class='pt-3'><a href='mostrar_informacion.php?id="+element.id+" ' class='link-dark'>"+element.nombre+"</a></td>"
-                tr.innerHTML += "<td class='pt-3'>"+element.price+"</td>"
-                tr.innerHTML += "<td class='pt-3 d-none d-sm-table-cell'>"+element.market_cap+"</td>"
+                tr.innerHTML += "<td class='pt-3'>"+element.price+" €</td>"
+                tr.innerHTML += "<td class='pt-3 d-none d-sm-table-cell'>"+element.market_cap+" €</td>"
                 if(element.change_h > 0){
-                    tr.innerHTML += "<td class='pt-3' style='color:green;'><strong style='background-color: #B4F6B0; padding:4px; border-radius:5px;'>"+element.change_h+"%</strong></td>"
+                    tr.innerHTML += "<td class='pt-3'><strong class ='positivo_tabla'>"+element.change_h+"%</strong></td>"
                 } else{
-                    tr.innerHTML += "<td class='pt-3' style='color:red;'><strong style='background-color: #F6B0B0; padding:4px; border-radius:5px;'>"+element.change_h+"%</strong></td>"
+                    tr.innerHTML += "<td class='pt-3'><strong class='negativo_tabla'>"+element.change_h+"%</strong></td>"
                 }
                 
                 //Mediante esta petcion pinta una estrella u otra para saber cual moneda tienes ya en favoritos

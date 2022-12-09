@@ -1,7 +1,5 @@
 <?php
 require_once "../model/Transaccion.php";
-session_start();
-
 $post = $_POST;
 
 

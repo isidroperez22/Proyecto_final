@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
             foto.setAttribute('src', response[0][6]);
             precio.innerText = response[0][4]  + "€";
             h24.innerText = response[0][5] + "%";
+            if (response[0][5] >= 0){
+                h24.setAttribute("class", "positivo");
+            } else {
+                h24.setAttribute("class", "negativo");
+            }
             descripcion.innerText = response[0][2];
             market_cap.innerText = "Capitalización de mercado: " + response[0][3] + "€";
             precio2.innerText = "Precio: "+ response[0][4]  + "€";

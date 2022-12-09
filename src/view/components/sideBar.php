@@ -13,7 +13,7 @@
             <li class="nav-item">
                 <a class="nav-link text-white add_transaccion" aria-current="page" href="#">
                 <i class="bi bi-currency-bitcoin"></i><i class="bi bi-plus"></i>
-                    Agregar activo
+                    Añadir transaccion
                 </a>
             </li>
         </ul>

@@ -1,6 +1,8 @@
 <?php
+require_once "../db/db.php";
 class Usuario
 {
+
     var $id;
     var $usuario;
     var $nombre;
@@ -19,7 +21,7 @@ class Usuario
         $this->email = $email;
         $this->password = $password;
         $this->role = $role;
-        $this->conexion = new mysqli('localhost', 'root', '', 'proyecto');
+        $this->conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
     }
 
     //Mostrar todos los datos de los usuarios
@@ -91,22 +93,44 @@ class Usuario
     //Podra editar los datos del usuario y actualizara la session
     public function edit_usuario()
     {
-        $update = "UPDATE usuarios SET usuario = '{$this->usuario}',  
-                                        nombre = '{$this->nombre}', 
-                                        apellido = '{$this->apellido}', 
-                                        email = '{$this->email}' 
-                                    WHERE id = '{$this->id}'";
+        if ($this->password == "") {
+            $update = "UPDATE usuarios SET usuario = '{$this->usuario}',  
+                                            nombre = '{$this->nombre}', 
+                                            apellido = '{$this->apellido}', 
+                                            email = '{$this->email}' 
+                                            WHERE id = '{$this->id}'";
 
-        $result = $this->conexion->query($update);
+            $result = $this->conexion->query($update);
 
-        if ($this->conexion->affected_rows) {
-            $_SESSION["nombre"] = $this->nombre;
-            $_SESSION["email"] = $this->email;
-            $_SESSION["apellido"] = $this->apellido;
-            $_SESSION["usuario"] = $this->usuario;
-            return true;
+            if ($this->conexion->affected_rows) {
+                $_SESSION["nombre"] = $this->nombre;
+                $_SESSION["email"] = $this->email;
+                $_SESSION["apellido"] = $this->apellido;
+                $_SESSION["usuario"] = $this->usuario;
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            $md5 = md5($this->password);
+            $update = "UPDATE usuarios SET usuario = '{$this->usuario}',  
+                                            nombre = '{$this->nombre}', 
+                                            apellido = '{$this->apellido}', 
+                                            email = '{$this->email}',
+                                            password = '{$md5}'
+                                            WHERE id = '{$this->id}'";
+
+            $result = $this->conexion->query($update);
+
+            if ($this->conexion->affected_rows) {
+                $_SESSION["nombre"] = $this->nombre;
+                $_SESSION["email"] = $this->email;
+                $_SESSION["apellido"] = $this->apellido;
+                $_SESSION["usuario"] = $this->usuario;
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

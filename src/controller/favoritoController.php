@@ -1,6 +1,5 @@
 <?php 
 require_once "../model/Favorito.php";
-session_start();
 
 $post = $_POST;
 $get = $_GET;

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["role"])){
-    header("Location: /proyecto/");
+    header("Location: https://coinfi-production.up.railway.app/");
 }
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ if(!isset($_SESSION["role"])){
             </main>
         </div>
     </div>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 sticky-bottom">
+    <footer class="footer mt-auto d-flex  justify-content-between align-items-center py-3 border-top sitcky-bottom">
         <?php
         require "view/components/footer.html"
         ?>

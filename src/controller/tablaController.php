@@ -1,9 +1,6 @@
 <?php
 include_once "../model/Moneda.php"; 
 include_once "../model/Favorito.php"; 
-
-session_start();
-
 //Este recibira dos peticiones
 $post = $_POST;
 $get = $_GET;

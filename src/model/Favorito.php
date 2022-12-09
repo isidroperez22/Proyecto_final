@@ -1,4 +1,5 @@
 <?php
+require_once "../db/db.php";
 class Favorito
 { 
     var $id_cripto;
@@ -9,7 +10,7 @@ class Favorito
     {
         $this->id_cripto = $id_cripto;
         $this->id_usuario = $id_usuario;
-        $this->conexion = new mysqli('localhost', 'root', '', 'proyecto');
+        $this->conexion = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME, DB_PORT);
     }
 
     public function add_favoritos()

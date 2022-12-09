@@ -6,19 +6,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $('.dashboard').click(function (e) { //Muestra la vista de dashboard
         e.preventDefault();
         $(content).empty();
-        $(content).load(('view/resumen_view.php'
+        $(content).load(('view/resumen_view.html'
         ), function () {
             console.log()
             $.ajax({
                 type: "GET",
                 url: "controller/dashboardController.php",
                 success: function (response) {
-                    let array_respuesta = JSON.parse(response); //Convierte la respuesta en un array
+                    let array_respuesta = JSON.parse(response); 
+                    // console.log(array_respuesta)
+                    //Convierte la respuesta en un array
                     let array_nombres = [];
                     let array_colores = [];
                     let array_cantidades = [];
                     array_respuesta.forEach(element => {
-                        console.log()
+                       
                         if (element["Total"] > 0) {  // Almacena los valores del array en 2 array distintos y 
                             array_nombres.push(element["Nombre"]);
                             array_cantidades.push(element["Total"]);
@@ -31,8 +33,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         }
 
                     });
-                    graficaRosco(array_nombres, array_colores, array_cantidades)
+                    graficaRosco(array_nombres, array_colores, array_cantidades);
 
+                    let tabla = document.getElementById("cuerpo")
+                    array_respuesta.forEach(element => {
+                        if(element["Cantidad"] > 0){
+                            let tr = document.createElement("tr");
+                            tr.innerHTML += "<td>"+element["Nombre"]+"</td>"
+                            tr.innerHTML += "<td>"+element["Precio"]+"</td>"
+                            tr.innerHTML += "<td>"+element["Cantidad"]+"</td>"
+                            tr.innerHTML += "<td>"+element["Total"]+"</td>"
+                            tabla.appendChild(tr);
+                        }
+                    });
                 }
             });
 
@@ -103,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $('.addCoin_view').click(function (e) { //Muestra la vista de agregar una criptomoneda
         e.preventDefault();
         $(content).empty();
-        $(content).load(('view/admin/addCoin_view.php'),
+        $(content).load(('view/admin/addCoin_view.html'),
             function () {
                 let coin = document.getElementById("addcoinForm")
 
@@ -187,14 +200,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $('.delCoin_view').click(function (e) { //Muestra la vista de eliminar criptomoneda
         e.preventDefault();
         $(content).empty();
-        $(content).load(('view/admin/delCoin_view.php'
+        $(content).load(('view/admin/delCoin_view.html'
         ), function () {
-            document.querySelectorAll(".click").forEach(el => { //recorre los elementos que tienen el selector click
-                el.addEventListener("click", e => { //Cuando encuentra el que has clicado enviara un el id a la funcion de eliminar
-                    let id = e.target.parentElement.id;
-                    eliminarCoins(id);
-                });
-            });
+            $.ajax({
+                type: "POST",
+                url: "controller/adminController.php",
+                data: {"mostrar_monedas":""},
+                dataType: "JSON",
+                success: function (response) {
+                    //Genera la tabla con las monedas
+                    let body = document.getElementById("cuerpo");
+                    response.forEach(element => {
+                        let tr = document.createElement("tr");
+                        
+                        tr.innerHTML += "<td>"+element.nombre+"</td>"
+                        tr.innerHTML += "<td><a class='link-dark click' id='"+element.id+"'><i class='bi bi-trash-fill'></i></a></td>"
+                        body.appendChild(tr);
+                    });
+                    document.querySelectorAll(".click").forEach(el => { //recorre los elementos que tienen el selector click
+                        el.addEventListener("click", e => { //Cuando encuentra el que has clicado enviara un el id a la funcion de eliminar
+                            let id = e.target.parentElement.id;
+                            if (confirm("¿Estas seguro?") == true) {
+                                eliminarCoins(id);
+                            }
+                        });
+                    });
+                }
+            })
+            
         });
     });
 
@@ -213,17 +246,35 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     //---------------- EDITCOIN
-    $('.editCoin_view').click(function (e) { //Muestra la vista de editar criptomoneda
+    $('.editCoin_view').click(function (e) { //Muestra la vista de editar moneda
         e.preventDefault();
         $(content).empty();
-        $(content).load(('view/admin/editCoin_view.php'
+        $(content).load(('view/admin/editCoin_view.html'
         ), function () {
-            document.querySelectorAll(".click").forEach(el => { //Busca el id y lo envia a la funcion valoresModal_coin()
-                el.addEventListener("click", e => {
-                    let id = e.target.parentElement.id;
-                    valoresModal_coin(id);
-                });
-            });
+            $.ajax({
+                type: "POST",
+                url: "controller/adminController.php",
+                data: {"mostrar_monedas":""},
+                dataType: "JSON",
+                success: function (response) {
+                    //Genera la tabla con las monedas
+                    let tabla = document.getElementById("cuerpo");
+                    response.forEach(element => {
+                        let tr = document.createElement("tr");
+                        
+                        tr.innerHTML += "<td>"+element.nombre+"</td>"
+                        tr.innerHTML += "<td><a class='link-dark click' id='"+element.id+"'><i class='bi bi-pencil-fill'></i></a></td>"
+                        tabla.appendChild(tr);
+                    });
+                    document.querySelectorAll(".click").forEach(el => { //Busca el id y lo envia a la funcion valoresModal_coin()
+                        el.addEventListener("click", e => {
+                            let id = e.target.parentElement.id;
+                            valoresModal_coin(id);
+                        });
+                    });
+                }
+            })
+            
         });
 
     });
@@ -268,15 +319,33 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $('.delUser_view').click(function (e) { //Muestra la vista de eliminar usuarios
         e.preventDefault();
         $(content).empty();
-        $(content).load(('view/admin/delUser_view.php'
+        $(content).load(('view/admin/delUser_view.html'
         ), function () {
-            document.querySelectorAll(".click").forEach(el => {
-                el.addEventListener("click", e => { //Busca el id y lo envia a la funcion eliminarUsuario()
-                    let id = e.target.parentElement.id;
-                    console.log(id)
-                    eliminarUsuario(id);
-                });
-            });
+            $.ajax({
+                type: "POST",
+                url: "controller/adminController.php?mostrarUsuarios",
+                dataType: "JSON",
+                success: function (response) {
+                    //Genera la tabla con las monedas
+                    let tabla = document.getElementById("cuerpo");
+                    response.forEach(element => {
+                        let tr = document.createElement("tr");
+                        
+                        tr.innerHTML += "<td>"+element.nombre +" " + element.apellido + "</td>"
+                        tr.innerHTML += "<td><a class='link-dark click' id='"+element.id+"'><i class='bi bi-trash-fill'></i></a></td>"
+                        tabla.appendChild(tr);
+                    });
+                    document.querySelectorAll(".click").forEach(el => {
+                        el.addEventListener("click", e => { //Busca el id y lo envia a la funcion eliminarUsuario()
+                            let id = e.target.parentElement.id;
+                            if (confirm("¿Estas seguro?") == true) {
+                                eliminarUsuario(id);
+                            }
+                        });
+                    });
+                }
+            })
+            
         });
 
     });
@@ -298,15 +367,31 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $('.editUser_view').click(function (e) { //Muestra la vista de editar usuarios
         e.preventDefault();
         $(content).empty();
-        $(content).load(('view/admin/editUser_view.php'
+        $(content).load(('view/admin/editUser_view.html'
         ), function () {
-            document.querySelectorAll(".click").forEach(el => {
-                el.addEventListener("click", e => {
-                    let id = e.target.parentElement.id;
-                    // console.log(id)
-                    valoresModal_user(id);
-                });
-            });
+            $.ajax({
+                type: "POST",
+                url: "controller/adminController.php?mostrarUsuarios",
+                dataType: "JSON",
+                success: function (response) {
+                    //Genera la tabla con las monedas
+                    let tabla = document.getElementById("cuerpo");
+                    response.forEach(element => {
+                        let tr = document.createElement("tr");
+                        
+                        tr.innerHTML += "<td>"+element.nombre +" " + element.apellido + "</td>"
+                        tr.innerHTML += "<td><a class='link-dark click' id='"+element.id+"'><i class='bi bi-pencil-fill'></i></a></td>"
+                        tabla.appendChild(tr);
+                    });
+                    document.querySelectorAll(".click").forEach(el => {
+                        el.addEventListener("click", e => {
+                            let id = e.target.parentElement.id;
+                            valoresModal_user(id);
+                        });
+                    });
+                }
+            })
+            
         });
 
     });

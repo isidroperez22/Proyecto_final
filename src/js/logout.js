@@ -24,8 +24,9 @@ function logout() {
         url: "controller/logoutController.php",
         // dataType: "JSON",
         success: function (response) {
-            sessionStorage.removeItem("role");
-            location.reload();
+            location.reload(true);
+            window.onload;
         }
+        
     });
 }

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 pt-5 ps-5">
-        <h1 class="">Agregar activo</h1>
+        <h1 class="">Añadir transaccion</h1>
     </div>
     <div class="col-12 pt-5 ps-5 pe-3">
         <form action="#" method="post" id="form_addCripto" name="form_addCripto">
@@ -22,7 +22,7 @@
                 <label for="" class="form-label">Cantidad</label>
                 <input require type="number" class="form-control" name="cantidad">
             </div>
-            <button type="button" class="btn text-white boton btn-add" id="btn_form">Editar</button>
+            <button type="button" class="btn text-white boton btn-add" id="btn_form">Añadir transaccion</button>
             </form>
     </div>
 </div>

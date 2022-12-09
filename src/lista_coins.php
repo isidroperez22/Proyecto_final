@@ -1,8 +1,8 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start();
-require_once "model/Moneda.php";
-require_once "model/Favorito.php"; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@ require "view/components/header.php"
         <?php if (isset($_SESSION["role"])) {
             if ($_SESSION["role"] == "admin") { ?>
                 <div class='col-12 text-end py-4 pe-5'>
-                    <button onclick = "actualizar_valores()" type='sumbit' class='btn boton text-white' id='actualizar_valores'>Actualizar valores</button>
+                    <button onclick="actualizar_valores()" type='sumbit' class='btn boton text-white' id='actualizar_valores'>Actualizar valores</button>
                 </div>
         <?php }
         } ?>
@@ -43,7 +43,7 @@ require "view/components/header.php"
                 </tr>
             </thead>
             <tbody id="cuerpo">
-               
+
             </tbody>
         </table>
     </div>
@@ -58,4 +58,5 @@ require "view/components/header.php"
 <script src="js/tabla.js"></script>
 <!-- <script src="js/tabla_favoritos.js"></script> -->
 <script src="resources/bootstrap/js/jquery-3.6.1.js"></script>
+
 </html>

@@ -75,7 +75,28 @@ footer {
     border-radius:10px;
     border: 3px solid green;;
 }
+.negativo {
+    color:red;
+    background-color: #f6b0b0;
+    padding:4px; 
+    border-radius:10px;
+    border: 3px solid red;;
+}
 
+.positivo_tabla {
+    color:green;
+    background-color: #B4F6B0;
+    padding:4px; 
+    border-radius:5px;
+    border: 1px solid green;;
+}
+.negativo_tabla {
+    color:red;
+    background-color: #f6b0b0;
+    padding:4px; 
+    border-radius:5px;
+    border: 1px solid red;;
+}
 .borde {
     color: rgb(74, 74, 74) !important;
 }

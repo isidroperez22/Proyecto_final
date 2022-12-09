@@ -6,9 +6,9 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
-        <a class="nav-link text-white" id="inicio" aria-current="page" href="/proyecto/">Inicio</a>
-        <a class="nav-link text-white" id="tablaMonedas" href="/proyecto/lista_coins.php">Monedas</a>
-        <?php if (isset($_SESSION["role"])) { ?><a class="nav-link text-white" id="tablaMonedas" href="/proyecto/favoritos_view.php">Lista de seguimiento</a> <?php } ?>
+        <a class="nav-link text-white" id="inicio" aria-current="page" href="/">Inicio</a>
+        <a class="nav-link text-white" id="tablaMonedas" href="lista_coins.php">Monedas</a>
+        <?php if (isset($_SESSION["role"])) { ?><a class="nav-link text-white" id="tablaMonedas" href="favoritos_view.php">Lista de seguimiento</a> <?php } ?>
       </div>
     </div>
     <?php if (!isset($_SESSION["role"])) { ?>
@@ -18,14 +18,14 @@
   <ul class="nav justify-content-end">
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-white" id="desplegable" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#"><i class="bi bi-person-circle"></i> <?php echo $_SESSION["nombre"] . " " . $_SESSION["apellido"] ?></a>
-    <ul class="dropdown-menu" aria-labelledby="desplegable">
-      <li><a class="dropdown-item" href="dashboard_view.php">Mi portfolio</a></li>
-      <li><a class="dropdown-item" href="ajustes_usuario_view.php">Ajustes de usuario</a></li>
-    </ul>
+      <ul class="dropdown-menu" aria-labelledby="desplegable">
+        <li><a class="dropdown-item" href="dashboard_view.php">Mi portfolio</a></li>
+        <li><a class="dropdown-item" href="ajustes_usuario_view.php">Ajustes de usuario</a></li>
+      </ul>
     </li>
 
     <li class="nav-item">
-      <button onclick="logout()" class="btn text-white"  type="button"><i class="bi bi-box-arrow-right"></i></button>
+      <button onclick="logout()" class="btn text-white" type="button"><i class="bi bi-box-arrow-right"></i></button>
     </li>
   </ul>
 

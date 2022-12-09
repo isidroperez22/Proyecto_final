@@ -1,4 +1,5 @@
 <?php
+require_once "../db/db.php";
 
 class Transaccion
 {
@@ -16,7 +17,7 @@ class Transaccion
         $this->cripto = $cripto;
         $this->fecha = $fecha;
         $this->cantidad = $cantidad;
-        $this->conexion = new mysqli('localhost', 'root', '', 'proyecto');
+        $this->conexion = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME, DB_PORT);
     }
 
     public function add_transaccion()

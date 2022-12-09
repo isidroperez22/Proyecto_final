@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
     register.addEventListener('submit', (e) => {
         e.preventDefault();
         var datos = $('#form_registro').serializeArray();
+        console.log(datos);
         $.ajax({
             type: "POST",
-            url: "controller/registerController.php",
+            url: "https://coinfi-production.up.railway.app/controller/registerController.php",
             data: datos,
             success: function (response) { //La respeusta recibe el mensaje y mostrara en pantalla el mensaje
                 let error = document.getElementById("error_register");
                 if (response == "registrado") {
-                    location.replace("index.php")
+                    location.reload(true);
                     window.onload;
                 } else if (response == "Las contraseñas no conciden") {
                     error.setAttribute("class", "alert alert-danger m-3");
@@ -37,14 +38,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
         var datos = $('#form_login').serializeArray();
         $.ajax({
             type: "POST",
-            url: "controller/loginController.php",
+            url: "https://coinfi-production.up.railway.app/controller/loginController.php",
             data: datos,
             dataType: "JSON",
             success: function (response) {
                 let errorLogin = document.getElementById("error_login");
-                sessionStorage.setItem('role', response["role"]);
                 if (response) {
-                    location.reload()
+                    location.reload(true)
                 } else { //Si es false mostrara el mensaje siguiente en pantalla
                     errorLogin.setAttribute("class", "alert alert-danger m-3");
                     errorLogin.innerText = "Usuario o contraseña incorrectos";

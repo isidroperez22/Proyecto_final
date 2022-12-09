@@ -7,8 +7,20 @@ $get = $_GET;
 // print_r($post);
 // exit;
 
+// echo '<pre>';
+// print_r($post);
+// echo '</pre>';
+// exit;
 
+if(key($get) == "mostrarUsuarios"){
+    $usuario = new Usuario();
+    echo json_encode($usuario->mostrar_usuarios());
+}
 
+if (key($post) == "mostrar_monedas") {
+    $moneda = new Moneda();
+    echo json_encode($moneda->datos_monedas());
+}
 
 if (key($post) == "id_user_del") {
     $usuario = new Usuario($post["id_user_del"]);

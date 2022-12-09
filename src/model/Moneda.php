@@ -1,4 +1,5 @@
 <?php
+require_once "../db/db.php";
 
 use LDAP\Result;
 
@@ -25,7 +26,7 @@ class Moneda
       $this->h24 = $h24;
       $this-> foto = $foto;
       $this-> color = $color;
-      $this->conexion = new mysqli('localhost', 'root', '', 'proyecto');
+      $this->conexion = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME, DB_PORT);;
    }
 
    //Muestra la informacion de todas las monedas
