@@ -16,7 +16,8 @@ El problema es que alguien sin conocimiento previo no sabe por donde empezar, ya
 
 
 ## Definir el objetivo de la aplicación
-La finalidad es que el usuario final pueda **aprender** sobre el mundo de las criptomonedas e **investigar** nuevos activos y **gestionar** los que posee, unificando los intereses del usuario.
+
+El objetivo de mi proyecto es **ayudar al usuario en el comienzo**, para adentrarse en este mundo, explicando algunos términos importantes y facilitándole algunas criptomonedas por las que empezar a investigar. Ofreciéndole la **posibilidad de poder gestionar lo que compre y lo que venda** teniendo así control de su patrimonio invertido.
 
 ## Prototipo de la Interfaz del proyecto
 
