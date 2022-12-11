@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     data: { "add": datos }, //Envia un json al controlador
                     success: function (response) {
                         console.log(response);
+                        alert("Añadido correctamente.")
                     }
                 });
             })
@@ -192,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             dataType: "JSON",
             success: function (response) {
                 console.log(response);
+                alert("Añadido correctamente.")
             }
         });
     }
@@ -240,6 +242,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             dataType: "JSON",
             success: function (response) {
                 console.log(response)
+                alert("Eliminado correctamente.")
                 location.reload();
             }
         });
@@ -307,6 +310,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             if (response == 1) { // Si la respuesta es 1 significa que se han guardado los cambios
                                 $("#coin").modal('hide');
                             }
+                            alert("Cambios actualizados correctamente.")
                             console.log(response)
                         }
                     });
@@ -358,6 +362,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             data: { "id_user_del": id },
             dataType: "JSON",
             success: function (response) {
+                alert("Eliminado correctamente.")
                 location.reload()
             }
         });
@@ -432,6 +437,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             if (response == 1) {
                                 $("#user").modal('hide');
                             }
+                            alert("Cambios actualizados correctamente.")
                             console.log(response)
                         }
                     });
